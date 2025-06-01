@@ -1,3 +1,9 @@
+/*
+
+Lee DongHun -> PlayerHealth 연동을 위해 관련 코드 추가.
+
+*/
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +14,7 @@ public class EnemyController : MonoBehaviour
     private ITraceStrategy strategy;
     private Transform playerTransform;
     private Animator animator;
+    private PlayerHealth playerHP; // donghun
 
     public EnemyType enemyType;
     public float moveSpeed = 2f;
@@ -18,6 +25,9 @@ public class EnemyController : MonoBehaviour
     public Slider healthBar;
 
     private bool isDead = false;
+
+    // donghun
+    public int damage = 10;
 
     void Start()
     {
@@ -46,8 +56,12 @@ public class EnemyController : MonoBehaviour
         }
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if (player != null) playerTransform = player.transform;
-
+        if (player != null)
+        {
+            playerTransform = player.transform;
+            playerHP = player.GetComponent<PlayerHealth>(); //donghun
+        }
+        
         switch (enemyType)
         {
             case EnemyType.Normal:
@@ -60,61 +74,65 @@ public class EnemyController : MonoBehaviour
                 strategy = new TraceFlyingStrategy();
                 break;
         }
-    }
+        }
 
-    void Update()
-    {
-        if (isDead) return;
-
-        if (playerTransform != null && strategy != null)
+        void Update()
         {
-            Vector3 direction = (playerTransform.position - transform.position).normalized;
-            direction.y = 0;
+            if (isDead) return;
 
-            if (direction.magnitude > 0.01f)
+            if (playerTransform != null && strategy != null)
             {
-                Quaternion toRotation = Quaternion.LookRotation(direction);
-                transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, Time.deltaTime * 5f);
+                Vector3 direction = (playerTransform.position - transform.position).normalized;
+                direction.y = 0;
+
+                if (direction.magnitude > 0.01f)
+                {
+                    Quaternion toRotation = Quaternion.LookRotation(direction);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, Time.deltaTime * 5f);
+                }
+
+                strategy.Trace(transform, playerTransform, moveSpeed);
+            }
+        }
+
+        void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("Player"))
+            {
+                if (playerHP != null)
+                {
+                    playerHP.TakeDamage(damage);
+                }
+                TakeDamage(1);
+            }
+        }
+
+        void TakeDamage(int amount)
+        {
+            if (isDead) return;
+
+            currentHealth -= amount;
+            if (healthBar != null)
+            {
+                healthBar.value = currentHealth;
             }
 
-            strategy.Trace(transform, playerTransform, moveSpeed);
+            if (currentHealth <= 0)
+            {
+                Die();
+            }
+        }
+
+        void Die()
+        {
+            if (isDead) return;
+            isDead = true;
+
+            if (animator != null)
+            {
+                animator.SetTrigger("Death");
+            }
+
+            Destroy(gameObject, 2f);
         }
     }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            TakeDamage(1);
-        }
-    }
-
-    void TakeDamage(int amount)
-    {
-        if (isDead) return;
-
-        currentHealth -= amount;
-        if (healthBar != null)
-        {
-            healthBar.value = currentHealth;
-        }
-
-        if (currentHealth <= 0)
-        {
-            Die();
-        }
-    }
-
-    void Die()
-    {
-        if (isDead) return;
-        isDead = true;
-
-        if (animator != null)
-        {
-            animator.SetTrigger("Death");
-        }
-
-        Destroy(gameObject, 2f);
-    }
-}
