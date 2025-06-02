@@ -353,6 +353,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4299293171547338639, guid: 0dded95cc08e86b4ebe259faeaff4f63, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 64823059b5e485b479ca488a461d01e1, type: 2}
+    - target: {fileID: 6133503316489494110, guid: 0dded95cc08e86b4ebe259faeaff4f63, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 64823059b5e485b479ca488a461d01e1, type: 2}
+    - target: {fileID: 6591266750230604600, guid: 0dded95cc08e86b4ebe259faeaff4f63, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 64823059b5e485b479ca488a461d01e1, type: 2}
+    - target: {fileID: 8075536961989042992, guid: 0dded95cc08e86b4ebe259faeaff4f63, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 64823059b5e485b479ca488a461d01e1, type: 2}
     - target: {fileID: 8617890155258181923, guid: 0dded95cc08e86b4ebe259faeaff4f63, type: 3}
       propertyPath: m_Name
       value: Railgun 1

@@ -10,4 +10,15 @@ public class Explosion : MonoBehaviour
     {
         Destroy(gameObject);
     }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag != "Weapon")
+        {
+            Debug.Log("Explosion");
+            if (other.tag == "Enemy")
+            {
+                other.GetComponent<EnemyController>().TakeDamage(1);
+            }
+        }
+    }
 }
