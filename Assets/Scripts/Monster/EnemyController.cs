@@ -1,6 +1,6 @@
 /*
 
-Lee DongHun -> PlayerHealth ¿¬µ¿À» À§ÇØ °ü·Ã ÄÚµå Ãß°¡.
+Lee DongHun -> PlayerHealth ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ ï¿½ß°ï¿½.
 
 */
 
@@ -33,7 +33,7 @@ public class EnemyController : MonoBehaviour
     {
         animator = GetComponentInChildren<Animator>();
 
-        // Å¸ÀÔ¿¡ µû¶ó Ã¼·Â ´Ù¸£°Ô ¼³Á¤
+        // Å¸ï¿½Ô¿ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¼ï¿½ï¿½ ï¿½Ù¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         switch (enemyType)
         {
             case EnemyType.Normal:
@@ -107,7 +107,7 @@ public class EnemyController : MonoBehaviour
             }
         }
 
-        void TakeDamage(int amount)
+        public void TakeDamage(int amount)
         {
             if (isDead) return;
 

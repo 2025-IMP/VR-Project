@@ -88,7 +88,7 @@ namespace TheDeveloperTrain.SciFiGuns
         {
             GameObject bullet = GameObject.Instantiate(bulletPrefab);
             bullet.transform.SetPositionAndRotation(muzzleTransform.position, muzzleTransform.rotation);
-            bullet.GetComponent<Bullet>().speed = stats.bulletSpeed;
+            //bullet.GetComponent<Bullet>().speed = stats.bulletSpeed;
 
             onBulletShot?.Invoke();
 

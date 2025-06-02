@@ -36,6 +36,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 885052112669815828, guid: c2e02f13124381e4c8a851149cd599da, type: 3}
+      propertyPath: m_TagString
+      value: Weapon
+      objectReference: {fileID: 0}
     - target: {fileID: 885052112669815830, guid: c2e02f13124381e4c8a851149cd599da, type: 3}
       propertyPath: simulationSpeed
       value: 1.3
@@ -363,6 +367,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 885052112669815828, guid: c2e02f13124381e4c8a851149cd599da, type: 3}
       insertIndex: -1
       addedObject: {fileID: -2298700785311294850}
+    - targetCorrespondingSourceObject: {fileID: 885052112669815828, guid: c2e02f13124381e4c8a851149cd599da, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9106181019782334032}
   m_SourcePrefab: {fileID: 100100000, guid: c2e02f13124381e4c8a851149cd599da, type: 3}
 --- !u!1 &6231179254812234503 stripped
 GameObject:
@@ -381,3 +388,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d44d3c620736b94d9086fe159db0581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &9106181019782334032
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6231179254812234503}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 3.7999992
+  m_Center: {x: 0, y: 0.24999988, z: 0}
