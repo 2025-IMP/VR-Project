@@ -2,5 +2,5 @@ using UnityEngine;
 
 public interface IShootStrategy
 {
-    public void Shoot(Transform shootTransform, int damage, float speed);
+    public void Shoot(Transform shootTransform, int damage, float speed, int bulletCount);
 }

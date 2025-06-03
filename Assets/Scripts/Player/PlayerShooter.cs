@@ -7,6 +7,7 @@ public class PlayerShooter : MonoBehaviour
     private InputAction m_TriggerAction;
 
     [SerializeField] private RailGun m_Gun;
+    public RailGun Gun => m_Gun;
 
     private IAttackStrategy m_CurrAttackStrategy;
 
