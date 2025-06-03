@@ -8,7 +8,7 @@ namespace IMP.Core
         void OnTriggerEnter(Collider other)
         {
             gameObject.SetActive(false);
-            SceneManager.LoadScene("Game");
+            SceneManager.LoadScene("Demo");
         }
     }
 }

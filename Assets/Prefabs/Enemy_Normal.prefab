@@ -873,7 +873,7 @@ GameObject:
   - component: {fileID: 2667298299515145929}
   m_Layer: 0
   m_Name: Enemy_Normal
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -935,6 +935,7 @@ MonoBehaviour:
   moveSpeed: 5
   maxHealth: 3
   healthBar: {fileID: 6325952871083899925}
+  damage: 10
 --- !u!65 &2667298299515145929
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2070,13 +2071,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealthBarCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1506375531094821558, guid: e3facf9f0268d1b4ab634726e62ee1d4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2021948331333013527, guid: e3facf9f0268d1b4ab634726e62ee1d4, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2021948331333013527, guid: e3facf9f0268d1b4ab634726e62ee1d4, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2021948331333013527, guid: e3facf9f0268d1b4ab634726e62ee1d4, type: 3}
       propertyPath: m_AnchorMin.x
