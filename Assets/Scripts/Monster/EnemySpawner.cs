@@ -38,7 +38,7 @@ public class EnemySpawner : MonoBehaviour
     public void Spawn(EnemyType type, Vector3 position)
     {
         EnemyController prefab = m_EnemyDatas[type];
-        Instantiate(prefab, position, Quaternion.identity, m_EnemyRoot);
+        //Instantiate(prefab, position, Quaternion.identity, m_EnemyRoot);
     }
     public void Spawn(EnemyType type)
     {
@@ -46,6 +46,6 @@ public class EnemySpawner : MonoBehaviour
         EnemySpawnPoint[] spawnPoints = AvailableSpawnPoints;
         int index = Random.Range(0, spawnPoints.Length);
 
-        Instantiate(prefab, spawnPoints[index].transform.position, Quaternion.identity, m_EnemyRoot);
+        //Instantiate(prefab, spawnPoints[index].transform.position, Quaternion.identity, m_EnemyRoot);
     }
 }
