@@ -8,6 +8,11 @@ public class Player : MonoBehaviour
     private PlayerLevel m_Level;
     private PlayerAbility m_Ability;
 
+    private float m_PowerRatio = 1f;
+    private float m_SpeedRatio = 1f;
+    private float m_HealthRatio = 1f;
+    private float m_ProtectRatio = 1f;
+
     private void Awake()
     {
         m_Health = GetComponent<PlayerHealth>();
@@ -31,9 +36,48 @@ public class Player : MonoBehaviour
     {
         m_Shooter.Gun.AddPowerRatio(value);
     }
-    
+
     public void PowerUpRailgunBullet(int value)
     {
+        m_Shooter.Gun.AddBulletCount(value);
+    }
 
+    public void PowerUpRailgunExplosion(float value)
+    {
+        // Activate explosion.
+        if (value == 0)
+        {
+            m_Shooter.Gun.SetShootStrategy(true);
+        }
+        // Enhance explosion power.
+        else
+        {
+
+        }
+    }
+
+    public void PowerUpRailgunThrough(int value)
+    {
+        m_Shooter.Gun.AddBulletThroughCount(value);
+    }
+
+    public void PowerUpPassivePower(float value)
+    {
+        m_PowerRatio += value * 0.01f;
+    }
+
+    public void PowerUpPassiveSpeed(float value)
+    {
+        m_SpeedRatio += value * 0.01f;
+    }
+
+    public void PowerUpPassiveHealth(float value)
+    {
+        m_HealthRatio += value * 0.01f;
+    }
+
+    public void PowerUpPassiveProtect(float value)
+    {
+        m_ProtectRatio -= value * 0.01f;
     }
 }

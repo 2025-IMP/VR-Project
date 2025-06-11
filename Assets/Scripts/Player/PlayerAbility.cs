@@ -27,16 +27,22 @@ public partial class PlayerAbility
                 PowerUpRailgunBullet();
                 break;
             case AbilityType.RAILGUN_EXPLOSION:
+                PowerUpRailgunExplosion();
                 break;
             case AbilityType.RAILGUN_THROUGH:
+                PowerUpRailgunThrough();
                 break;
             case AbilityType.PASSIVE_POWER:
+                PowerUpPassivePower();
                 break;
             case AbilityType.PASSIVE_SPEED:
+                PowerUpPassiveSpeed();
                 break;
             case AbilityType.PASSIVE_HEALTH:
+                PowerUpPassiveHealth();
                 break;
             case AbilityType.PASSIVE_PROTECT:
+                PowerUpPassiveProtect();
                 break;
         }
     }
