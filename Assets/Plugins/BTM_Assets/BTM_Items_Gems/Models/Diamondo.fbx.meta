@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 86547782c0ca55f4098b1185db372acc
+guid: 8b76e94f4294db842928c1d103f1afce
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -110,5 +110,5 @@ AssetOrigin:
   productId: 73764
   packageName: Simple Gems and Items Ultimate Animated Customizable Pack
   packageVersion: 1.3
-  assetPath: Assets/Models/SphereGem3.fbx
+  assetPath: Assets/BTM_Assets/BTM_Items_Gems/Models/Diamondo.fbx
   uploadId: 739389
