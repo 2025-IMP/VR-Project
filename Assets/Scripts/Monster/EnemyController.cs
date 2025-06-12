@@ -1,6 +1,6 @@
 /*
 
-Lee DongHun -> PlayerHealth ������ ���� ���� �ڵ� �߰�.
+Lee DongHun -> PlayerHealth
 
 */
 
@@ -33,7 +33,6 @@ public class EnemyController : MonoBehaviour
     {
         animator = GetComponentInChildren<Animator>();
 
-        // Ÿ�Կ� ���� ü�� �ٸ��� ����
         switch (enemyType)
         {
             case EnemyType.Normal:
