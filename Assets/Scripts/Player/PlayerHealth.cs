@@ -50,6 +50,15 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    public void Heal(int amount)
+    {
+        if (isDead) return; // 사망 상태면 회복 불가
+
+        currentHP = Mathf.Min(currentHP + amount, maxHP); // 최대 체력 초과 방지
+
+        if (hpBar) hpBar.value = currentHP; // UI 갱신
+    } // CHAEWON
+
     IEnumerator IFrames()          // 잠깐 무적(핏박스 연속충돌 방지)
     {
         invincible = true;
