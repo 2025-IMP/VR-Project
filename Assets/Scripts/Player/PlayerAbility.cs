@@ -5,6 +5,7 @@ public partial class PlayerAbility
     private Player m_Player;
 
     private Dictionary<AbilityType, int> m_Abilities = new Dictionary<AbilityType, int>();
+    public Dictionary<AbilityType, int> Abilities => m_Abilities;
 
     public PlayerAbility(Player player)
     {

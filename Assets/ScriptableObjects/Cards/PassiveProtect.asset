@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: PassiveProtect
   m_EditorClassIdentifier: 
   Type: 7
-  Icon: {fileID: 2800000, guid: 8ca9c61bf3c7edc49aa240bac2e61ce2, type: 3}
+  Name: More Protection!
+  Icon: {fileID: 21300000, guid: 8ca9c61bf3c7edc49aa240bac2e61ce2, type: 3}
   MaxLevel: 8
   PowerUps:
   - Desc: Damage reduce -10%.

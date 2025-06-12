@@ -23,7 +23,8 @@ public class PowerUp
 public class CardData : ScriptableObject
 {
     public AbilityType Type;
-    public Texture2D Icon;
+    public string Name;
+    public Sprite Icon;
     public int MaxLevel;
 
     public PowerUp[] PowerUps;

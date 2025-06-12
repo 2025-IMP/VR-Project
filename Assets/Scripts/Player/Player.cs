@@ -3,10 +3,13 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public static Player PlayerInstance { get; private set; }
+
     private PlayerHealth m_Health;
     private PlayerShooter m_Shooter;
     private PlayerLevel m_Level;
     private PlayerAbility m_Ability;
+    public PlayerAbility Ability => m_Ability;
 
     private float m_PowerRatio = 1f;
     private float m_SpeedRatio = 1f;
@@ -19,6 +22,8 @@ public class Player : MonoBehaviour
         m_Shooter = GetComponent<PlayerShooter>();
         m_Level = GetComponent<PlayerLevel>();
         m_Ability = GetComponent<PlayerAbility>();
+
+        PlayerInstance = this;
     }
 
     private void Start()
