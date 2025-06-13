@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
         m_Health = GetComponent<PlayerHealth>();
         m_Shooter = GetComponent<PlayerShooter>();
         m_Level = GetComponent<PlayerLevel>();
-        m_Ability = GetComponent<PlayerAbility>();
+        m_Ability = new PlayerAbility(this);
 
         PlayerInstance = this;
     }
