@@ -20,12 +20,18 @@ public class AudioManager : MonoBehaviour
     public AudioClip itemGetSFX;
     public AudioClip monsterDieSFX;
 
+    public float BGMVolume => bgmSource.volume;
+    public float SFXVolume => sfxSource.volume;
+
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+
+            bgmSource.volume = PlayerPrefs.GetFloat("bgm", 0.3f);
+            sfxSource.volume = PlayerPrefs.GetFloat("sfx", 0.5f);
         }
         else
         {
@@ -52,5 +58,18 @@ public class AudioManager : MonoBehaviour
     public void StopBGM()
     {
         bgmSource.Stop();
+    }
+
+    public void SetVolume(AudioType type, float value)
+    {
+        switch (type)
+        {
+            case AudioType.BGM:
+                bgmSource.volume = value;
+                break;
+            case AudioType.SFX:
+                sfxSource.volume = value;
+                break;
+        }
     }
 }
