@@ -1,13 +1,15 @@
-/*
-
-Lee DongHun -> PlayerHealth
-
-*/
-
 using UnityEngine;
 using UnityEngine.UI;
+using IMP.Core;
 
 public enum EnemyType { Normal, Bomb, Flying }
+
+[System.Serializable]
+public class DropPrefabEntry
+{
+    public DropType type;
+    public GameObject prefab;
+}
 
 public class EnemyController : MonoBehaviour
 {
@@ -28,6 +30,8 @@ public class EnemyController : MonoBehaviour
 
     // donghun
     public int damage = 10;
+
+    [SerializeField] private DropPrefabEntry[] dropPrefabs;
 
     void Start()
     {
@@ -132,8 +136,38 @@ public class EnemyController : MonoBehaviour
             animator.SetTrigger("Death");
         }
 
-        Destroy(gameObject, 2f);
+        DropRandomItem();
 
+        Destroy(gameObject, 2f);
         DropHandler.OnEnemyDead?.Invoke(transform);
+    }
+
+    private void DropRandomItem()
+    {
+        int dropCount = Random.Range(3, 5);
+
+        for (int i = 0; i < dropCount; i++)
+        {
+            DropType dropType = DropHelper.GetRandomDropType();
+            GameObject selectedPrefab = null;
+
+            foreach (var entry in dropPrefabs)
+            {
+                if (entry.type == dropType)
+                {
+                    selectedPrefab = entry.prefab;
+                    break;
+                }
+            }
+
+            if (selectedPrefab == null) continue;
+
+            Vector3 dropPos = transform.position + Random.insideUnitSphere * 0.5f;
+            dropPos.y = transform.position.y;
+
+            GameObject drop = Instantiate(selectedPrefab, dropPos, Quaternion.identity);
+            DropItem dropItem = drop.GetComponent<DropItem>();
+            dropItem.SetStrategy(dropType);
+        }
     }
 }
