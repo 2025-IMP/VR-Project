@@ -1531,6 +1531,7 @@ GameObject:
   - component: {fileID: 1335362746385072298}
   - component: {fileID: 6818279862347263861}
   - component: {fileID: 2736256177212649915}
+  - component: {fileID: 2711961525631200019}
   m_Layer: 0
   m_Name: Enemy_Flying
   m_TagString: Enemy
@@ -1546,7 +1547,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6562850818961578959}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.99291307, z: -0, w: -0.1188431}
+  m_LocalRotation: {x: -0, y: -0.9929127, z: 0, w: -0.118845746}
   m_LocalPosition: {x: 0.17593858, y: 5.66, z: -1.1701407}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
@@ -1615,12 +1616,39 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1.5454149, y: 1.2700958, z: 1.7195061}
   m_Center: {x: -0.000051689505, y: 0.62610686, z: -0.16120148}
+--- !u!54 &2711961525631200019
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6562850818961578959}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6623055325007180565
 GameObject:
   m_ObjectHideFlags: 0

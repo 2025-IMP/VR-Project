@@ -6,7 +6,8 @@ namespace IMP.Core
     {
         EXP,
         MAGNET,
-        BOMB
+        BOMB,
+        HEAL
     }
 
     public class DropItem : MonoBehaviour
@@ -35,6 +36,10 @@ namespace IMP.Core
 
                 case DropType.BOMB:
                     m_ItemStrategy = new BombStrategy(this);
+                    break;
+
+                case DropType.HEAL:
+                    m_ItemStrategy = new HealStrategy(this);
                     break;
             }
         }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerLevel : MonoBehaviour
@@ -8,6 +9,8 @@ public class PlayerLevel : MonoBehaviour
     private int m_Level;
 
     private int m_NeedExp;
+
+    public static Action OnLevelUp;
 
     public void Initialize()
     {
@@ -35,6 +38,8 @@ public class PlayerLevel : MonoBehaviour
     {
         m_Level += 1;
         m_NeedExp = GetNeedExp(m_Level);
+
+        OnLevelUp?.Invoke();
     }
 
     public int GetNeedExp(int level)
