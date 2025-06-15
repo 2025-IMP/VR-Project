@@ -14,13 +14,28 @@ public class RailGun : MonoBehaviour, IAttackStrategy
     private IShootStrategy m_ExplosionShootStrategy;
 
     private int m_Damage = 1;
+    public int Damage => m_Damage;
+
     private float m_PowerRatio = 1f;
+    public float PowerRatio => m_PowerRatio;
+
     private float m_BulletSpeed = 60f;
+    public float BulletSpeed => m_BulletSpeed;
+
     private int m_BulletCount = 1;
+    public int BulletCount => m_BulletCount;
+
     private int m_BulletThroughCount = 1;
+    public int BulletThroughCount => m_BulletThroughCount;
+
+    private float m_BulletExplosionPowerRatio = 1f;
+    public float BulletExplosionPowerRatio => m_BulletExplosionPowerRatio;
+
+    public static RailGun Instance { get; private set; }
 
     private void Awake()
     {
+        Instance = this;
         m_NormalShootStrategy ??= new NormalShootStrategy(normalBullet);
         m_ExplosionShootStrategy ??= new NormalShootStrategy(explosionBullet);
     }
@@ -37,6 +52,8 @@ public class RailGun : MonoBehaviour, IAttackStrategy
 
     public void Execute()
     {
+        if (Player.PlayerInstance.Health.IsDead) return;
+
         Shoot();
     }
 
@@ -58,5 +75,10 @@ public class RailGun : MonoBehaviour, IAttackStrategy
     public void AddBulletThroughCount(int value)
     {
         m_BulletThroughCount += value;
+    }
+
+    public void AddBulletExplosionPowerRatio(float value)
+    {
+        m_BulletExplosionPowerRatio += value * 0.01f;
     }
 }

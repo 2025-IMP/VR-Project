@@ -8,6 +8,8 @@ namespace TheDeveloperTrain.SciFiGuns
         private float speed = 60f;
         private float lifetime = 5f;
 
+        private int throughCount = 0;
+
         void Start()
         {
             transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
@@ -19,11 +21,19 @@ namespace TheDeveloperTrain.SciFiGuns
             transform.Translate(speed * Time.deltaTime * Vector3.forward, Space.Self);
         }
 
-        void OnTriggerEnter(Collider other)
+        protected virtual void OnTriggerEnter(Collider other)
         {
-            if (other.tag == "Enemy")
+            if (other.tag == "Enemy" && other.TryGetComponent(out EnemyController enemy))
             {
-                other.GetComponent<EnemyController>().TakeDamage(damage);
+                if (enemy.IsDead) return;
+
+                enemy.TakeDamage((int)((float)RailGun.Instance.Damage * Player.PlayerInstance.PowerRatio * RailGun.Instance.PowerRatio));
+                throughCount += 1;
+
+                if (throughCount >= RailGun.Instance.BulletThroughCount)
+                {
+                    Destroy(gameObject);
+                }
             }
         }
 

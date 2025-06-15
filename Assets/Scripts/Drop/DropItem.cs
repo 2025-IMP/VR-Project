@@ -48,6 +48,8 @@ namespace IMP.Core
         {
             if (m_AutoGained && other.CompareTag("Player"))
             {
+                AudioManager.Instance.PlayAudio(AudioType.SFX, AudioManager.Instance.itemGetSFX);
+
                 Player player = other.GetComponent<Player>();
                 m_ItemStrategy.Execute(player);
                 Destroy(gameObject);

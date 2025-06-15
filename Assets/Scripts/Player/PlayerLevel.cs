@@ -19,6 +19,7 @@ public class PlayerLevel : MonoBehaviour
         m_Exp = 0;
         m_Level = 1;
         m_NeedExp = GetNeedExp(m_Level);
+        GainExp(0);
     }
 
     // 기본 경험치 증가

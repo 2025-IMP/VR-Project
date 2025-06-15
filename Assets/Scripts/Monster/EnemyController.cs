@@ -27,6 +27,7 @@ public class EnemyController : MonoBehaviour
     public Slider healthBar;
 
     private bool isDead = false;
+    public bool IsDead => isDead;
 
     // donghun
     public int damage = 10;
@@ -100,6 +101,8 @@ public class EnemyController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        if (isDead) return;
+
         if (other.CompareTag("Player"))
         {
             if (playerHP != null)
@@ -135,6 +138,8 @@ public class EnemyController : MonoBehaviour
         {
             animator.SetTrigger("Death");
         }
+
+        AudioManager.Instance.PlayAudio(AudioType.SFX, AudioManager.Instance.monsterDieSFX);
 
         DropRandomItem();
 

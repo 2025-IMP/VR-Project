@@ -2092,6 +2092,15 @@ MonoBehaviour:
   maxHealth: 1
   healthBar: {fileID: 6929666421499294958}
   damage: 10
+  dropPrefabs:
+  - type: 0
+    prefab: {fileID: 0}
+  - type: 1
+    prefab: {fileID: 0}
+  - type: 2
+    prefab: {fileID: 0}
+  - type: 3
+    prefab: {fileID: 0}
 --- !u!65 &6259898222787657238
 BoxCollider:
   m_ObjectHideFlags: 0

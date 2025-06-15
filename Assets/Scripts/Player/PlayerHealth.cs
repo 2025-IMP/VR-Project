@@ -21,6 +21,7 @@ public class PlayerHealth : MonoBehaviour
     int currentHP;
     bool invincible;
     bool isDead;
+    public bool IsDead => isDead;
 
     void Start()
     {
@@ -43,8 +44,7 @@ public class PlayerHealth : MonoBehaviour
         if (currentHP <= 0)
         {
             Die();
-        }
-        else
+        } else
         {
             StartCoroutine(IFrames());
         }
@@ -73,6 +73,12 @@ public class PlayerHealth : MonoBehaviour
         isDead = true;
 
         onGameOver?.Invoke();      // UI 열기
-        Time.timeScale = 0f;       // 게임 정지
+    }
+
+    public void ApplyHealthRatio(float ratio)
+    {
+        currentHP = (int)(currentHP * (1f + ratio));
+        hpBar.maxValue = maxHP * ratio;
+        hpBar.value = currentHP;
     }
 }

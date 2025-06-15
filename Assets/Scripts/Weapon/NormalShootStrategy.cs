@@ -12,11 +12,12 @@ public class NormalShootStrategy : IShootStrategy
 
     public void Shoot(Transform shootTransform, int damage, float speed, int bulletCount)
     {
-        for (int i = 0; i < bulletCount; i++)
-        {
+        AudioManager.Instance.PlayAudio(AudioType.SFX, AudioManager.Instance.gunShootSFX);
 
+        for (int i = 0; i < RailGun.Instance.BulletCount; i++)
+        {
+            Bullet bullet = GameObject.Instantiate(m_Bullet, shootTransform.position, shootTransform.rotation);
+            bullet.Setup(damage, speed);
         }
-        Bullet bullet = GameObject.Instantiate(m_Bullet, shootTransform.position, shootTransform.rotation);
-        bullet.Setup(damage, speed);
     }
 }

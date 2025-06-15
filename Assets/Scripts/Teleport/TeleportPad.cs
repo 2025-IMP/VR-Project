@@ -23,10 +23,12 @@ public class TeleportPad : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (lockFlag || destination == null) return;
-        if (!other.CompareTag("MainCamera")) return;
+        if (!other.CompareTag("Player")) return;
 
         var rig = other.GetComponentInParent<XROrigin>();
         if (!rig) return;
+
+        AudioManager.Instance.PlayAudio(AudioType.SFX, AudioManager.Instance.teleportSFX);
 
         // ★ 안정 이동
         rig.MoveCameraToWorldLocation(destination.transform.position);

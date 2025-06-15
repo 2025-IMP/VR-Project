@@ -1,10 +1,14 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit.Locomotion.Movement;
 
 public class PlayerShooter : MonoBehaviour
 {
     [SerializeField] private InputActionAsset m_InputAction;
     private InputAction m_TriggerAction;
+
+    private ContinuousMoveProvider m_MoveProvider;
+    public ContinuousMoveProvider MoveProvider => m_MoveProvider;
 
     [SerializeField] private RailGun m_Gun;
     public RailGun Gun => m_Gun;
@@ -14,6 +18,7 @@ public class PlayerShooter : MonoBehaviour
     private void Awake()
     {
         m_TriggerAction = m_InputAction.FindActionMap("XRI Right Interaction").FindAction("Activate");
+        m_MoveProvider = GetComponent<ContinuousMoveProvider>();
     }
 
     private void Start()

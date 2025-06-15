@@ -6,15 +6,25 @@ public class Player : MonoBehaviour
     public static Player PlayerInstance { get; private set; }
 
     private PlayerHealth m_Health;
+    public PlayerHealth Health => m_Health;
     private PlayerShooter m_Shooter;
     private PlayerLevel m_Level;
     private PlayerAbility m_Ability;
     public PlayerAbility Ability => m_Ability;
 
+    private float m_BaseSpeed = 3f;
+
     private float m_PowerRatio = 1f;
+    public float PowerRatio => m_PowerRatio;
+
     private float m_SpeedRatio = 1f;
+    public float SpeedRatio => m_SpeedRatio;
+
     private float m_HealthRatio = 1f;
+    public float HealthRatio => m_HealthRatio;
+
     private float m_ProtectRatio = 1f;
+    public float ProtectRatio => m_ProtectRatio;
 
     private void Awake()
     {
@@ -30,6 +40,8 @@ public class Player : MonoBehaviour
     {
         m_Level.Initialize();
         m_Ability.Initialize();
+
+        m_Shooter.MoveProvider.moveSpeed = m_BaseSpeed;
     }
 
     public void GainExp(int exp)
@@ -57,7 +69,7 @@ public class Player : MonoBehaviour
         // Enhance explosion power.
         else
         {
-
+            m_Shooter.Gun.AddBulletExplosionPowerRatio(value);
         }
     }
 
@@ -74,11 +86,13 @@ public class Player : MonoBehaviour
     public void PowerUpPassiveSpeed(float value)
     {
         m_SpeedRatio += value * 0.01f;
+        m_Shooter.MoveProvider.moveSpeed = m_BaseSpeed * m_SpeedRatio;
     }
 
     public void PowerUpPassiveHealth(float value)
     {
         m_HealthRatio += value * 0.01f;
+        m_Health.ApplyHealthRatio(m_HealthRatio);
     }
 
     public void PowerUpPassiveProtect(float value)
