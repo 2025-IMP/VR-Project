@@ -7,6 +7,7 @@ public class PowerUpHandler : MonoBehaviour
 {
     [SerializeField] private GameObject m_CanvasObj;
     [SerializeField] private Transform m_ButtonRoot;
+
     private PowerUpButton[] m_PowerUpButtons;
 
     void Awake()
