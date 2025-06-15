@@ -469,7 +469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb6a3b25d7fecbe4c9b6c3583425bb09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destination: {fileID: 865618881}
+  destination: {fileID: 0}
   cooldown: 10
 --- !u!65 &259640192
 BoxCollider:
@@ -848,7 +848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb6a3b25d7fecbe4c9b6c3583425bb09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destination: {fileID: 1473219992}
+  destination: {fileID: 0}
   cooldown: 10
 --- !u!65 &766827638
 BoxCollider:
@@ -888,7 +888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb6a3b25d7fecbe4c9b6c3583425bb09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destination: {fileID: 259640191}
+  destination: {fileID: 0}
   cooldown: 10
 --- !u!65 &865618882
 BoxCollider:
@@ -1621,7 +1621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb6a3b25d7fecbe4c9b6c3583425bb09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destination: {fileID: 766827637}
+  destination: {fileID: 0}
   cooldown: 10
 --- !u!65 &1473219993
 BoxCollider:
@@ -1719,15 +1719,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6411b8e4507614d44ba355fd7fdb6906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EnemyStorage:
-  - Type: 0
-    Prefab: {fileID: 5775009654015994775, guid: 3740c43e18f1228499fb09a8b051f107, type: 3}
-  - Type: 1
-    Prefab: {fileID: 3709207218791945279, guid: 042cb3b866ed2cb4ea3c690583808ed2, type: 3}
-  - Type: 2
-    Prefab: {fileID: 6818279862347263861, guid: d6e5f3a2399d8cd4d9645b45391ac1aa, type: 3}
-  m_EnemyRoot: {fileID: 1575094245}
-  m_SpawnPointRoot: {fileID: 1024984506}
+  m_EnemyStorage: []
+  m_EnemyRoot: {fileID: 0}
+  m_SpawnPointRoot: {fileID: 0}
 --- !u!4 &1575094245
 Transform:
   m_ObjectHideFlags: 0
