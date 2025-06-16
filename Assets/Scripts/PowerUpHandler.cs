@@ -53,6 +53,8 @@ public class PowerUpHandler : MonoBehaviour
 
     public void OnPowerUpPressed(int index)
     {
+        AudioManager.Instance.PlayAudio(AudioType.SFX, AudioManager.Instance.clickSFX);
+
         PowerUpButton pressedButton = m_PowerUpButtons[index];
         Player.PlayerInstance.Ability.PowerUpAbility(pressedButton.Type);
 

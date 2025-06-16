@@ -17,11 +17,6 @@ namespace IMP.Core
         private IDropItemStrategy m_ItemStrategy;
         public IDropItemStrategy ItemStrategy => m_ItemStrategy;
 
-        private void Start()
-        {
-            SetStrategy(DropType.EXP);
-        }
-
         public void SetStrategy(DropType type)
         {
             switch (type)
@@ -54,6 +49,11 @@ namespace IMP.Core
                 m_ItemStrategy.Execute(player);
                 Destroy(gameObject);
             }
+        }
+
+        public void Execute()
+        {
+            m_ItemStrategy?.Execute(Player.PlayerInstance);
         }
     }
 }

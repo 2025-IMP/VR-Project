@@ -12,7 +12,7 @@ public class PlayerHealth : MonoBehaviour
 {
     [Header("Stats")]
     public int maxHP = 100;
-    public float invincibleTime = 0.5f;   // 피격 후 무적시간
+    public float invincibleTime = 1f;   // 피격 후 무적시간
 
     [Header("UI References")]
     public Slider hpBar;          // Inspector에 HP 슬라이더(선택)

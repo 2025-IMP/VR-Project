@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -38,7 +39,8 @@ public class Game : MonoBehaviour
         {
             for (int i = 0; i < spawnCount; i++)
             {
-                m_Spawner.Spawn(EnemyType.Normal);
+                int randType = UnityEngine.Random.Range(0, 3);
+                m_Spawner.Spawn((EnemyType)randType);
                 yield return null;
             }
 

@@ -2183,7 +2183,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3429552369996727388, guid: 7812c1c6f74ddba4b92038d843af8b49, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7240508943776955002, guid: 7812c1c6f74ddba4b92038d843af8b49, type: 3}
       propertyPath: m_Name
@@ -3763,6 +3763,14 @@ PrefabInstance:
       propertyPath: explosionBullet
       value: 
       objectReference: {fileID: 1334541271973219737, guid: 6f96c35a76f54d142815c655e975b374, type: 3}
+    - target: {fileID: 9149479916106613065, guid: 4a27a203a8aebbb47b495e30d66cc6f3, type: 3}
+      propertyPath: maxHP
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 9149479916106613065, guid: 4a27a203a8aebbb47b495e30d66cc6f3, type: 3}
+      propertyPath: invincibleTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9149479916106613065, guid: 4a27a203a8aebbb47b495e30d66cc6f3, type: 3}
       propertyPath: onGameOver.m_PersistentCalls.m_Calls.Array.size
       value: 1

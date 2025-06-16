@@ -10,8 +10,12 @@ public class Granade : MonoBehaviour
     private float domeScale = 0f;
     private bool expState = false;
     private bool expPossible = false;
+
+    private Rigidbody _rigidbody;
+
     void Awake()
     {
+        _rigidbody = GetComponent<Rigidbody>();
         dome = transform.Find("Dome").gameObject;
         //GranedeExplosion();
     }
@@ -19,6 +23,18 @@ public class Granade : MonoBehaviour
     {
         dome.SetActive(true);
         StartCoroutine(UpdateDomeScaleCoroutine());
+
+        _rigidbody.linearVelocity = Vector3.zero;
+        _rigidbody.isKinematic = true;
+
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 2f);
+        foreach (Collider collider in colliders)
+        {
+            if (collider.CompareTag("Enemy") && collider.TryGetComponent(out EnemyController enemy))
+            {
+                enemy.TakeDamage((int)(10f * Player.PlayerInstance.PowerRatio));
+            }
+        }
     }
     void OnCollisionEnter(Collision collision)
     {

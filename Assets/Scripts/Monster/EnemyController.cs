@@ -107,9 +107,8 @@ public class EnemyController : MonoBehaviour
         {
             if (playerHP != null)
             {
-                playerHP.TakeDamage(damage);
+                playerHP.TakeDamage((int)(damage * Player.PlayerInstance.ProtectRatio));
             }
-            TakeDamage(1);
         }
     }
 
@@ -144,7 +143,6 @@ public class EnemyController : MonoBehaviour
         DropRandomItem();
 
         Destroy(gameObject, 2f);
-        DropHandler.OnEnemyDead?.Invoke(transform);
     }
 
     private void DropRandomItem()
@@ -164,6 +162,8 @@ public class EnemyController : MonoBehaviour
                     break;
                 }
             }
+
+            Debug.Log($"DropType: {dropType}");
 
             if (selectedPrefab == null) continue;
 
